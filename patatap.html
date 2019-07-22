@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script type="text/javascript"src="paper.js"></script>
+    <script type="text/paperscript" canvas="myCanvas">
+        var t = [];
+      
+        function onKeyDown(event) {
+            var max = new Point(view.size.width,view.size.height);
+            var destination = Point.random() * max;
+      cir = new Path.Circle(destination,400);
+       cir.fillColor=Color.random();
+      t.push(cir);
+      console.log(t[1]);
+       
+    }
+    function onFrame(event) {
+       for(var x=0;x < t.length;x++){
+          t[x].fillColor.hue+=1;
+          t[x].scale(.9);
+       }
+    }
+        
+    </script>
+    </script>
+
+</head>
+<body>
+        <canvas id="myCanvas" resize></canvas>
+    </body>
+</html>
